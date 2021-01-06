@@ -83,6 +83,10 @@ int main(void) {
     #ifdef TEST
         int end = 0;
         int* dynamicList = initializeList(MAX_SIZE, &end);
+        if (dynamicList == NULL) {
+            printf("Not enough memory. Line %d\n", __LINE__);
+            exit(EXIT_FAILURE);
+        }
 
         for (int j = 0; j < 20; j++) {
             insertElement(dynamicList, (j+1), &end);
@@ -150,7 +154,7 @@ void insertElement3(int* list, int value, int* end) {
     (*end)++;
 }
 
-/* Insert element at a specific index */
+/* Insert element at a specific index. Returns 0 if list is empty (no element is added to list) */
 int insertElement4(int* list, int value, int index, int* end) {
     // expand list if full
     if (*end == MAX_SIZE) {
