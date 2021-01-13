@@ -94,7 +94,7 @@ int main(void) {
     printList(head);
 
     // search '10' in list
-    int valueToSearch = 10;
+    int valueToSearch = 1000;
     printf("'%d' at position: %d\n", valueToSearch, search(head, valueToSearch));
 
     // free memory for all list nodes
@@ -226,19 +226,17 @@ int search(Node* head, int valueToSearch) {
     // iterate over list until value is found or till end of list while
     // keeping track of how many iterations made
     int index = 0;
-    while ((currentNode->value != valueToSearch) && (currentNode != NULL)) {
+    while (currentNode->value != valueToSearch) {
         currentNode = currentNode->next;
         index++;
+
+        if (currentNode == NULL) {
+            // value not found, return -1
+            return -1;
+        }
     }
 
-    // value not in list
-    if (currentNode == NULL) {
-        return -1;
-    }
-    // return position of value in list
-    else {
-        return index;
-    }
+    return index;
 }
 
 /* Print list. */
