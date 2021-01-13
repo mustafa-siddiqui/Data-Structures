@@ -1,3 +1,9 @@
+/** @file   linked_list.c
+ *  @brief  An implementation of a linked list of integers in C.
+ *  @author Mustafa Siddiqui
+ *  @date   01/13/2020
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -87,8 +93,8 @@ int main(void) {
     delete(head, 99);
     printList(head);
 
-    // search '7' in list
-    int valueToSearch = 7;
+    // search '10' in list
+    int valueToSearch = 10;
     printf("'%d' at position: %d\n", valueToSearch, search(head, valueToSearch));
 
     // free memory for all list nodes
@@ -220,13 +226,13 @@ int search(Node* head, int valueToSearch) {
     // iterate over list until value is found or till end of list while
     // keeping track of how many iterations made
     int index = 0;
-    while ((currentNode->value != valueToSearch) && (currentNode->next != NULL)) {
+    while ((currentNode->value != valueToSearch) && (currentNode != NULL)) {
         currentNode = currentNode->next;
         index++;
     }
 
     // value not in list
-    if (currentNode->next == NULL) {
+    if (currentNode == NULL) {
         return -1;
     }
     // return position of value in list
