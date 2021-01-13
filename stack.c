@@ -1,6 +1,6 @@
 /** @file   stack.c
  *  @brief  An implementation of a stack of integers in C. The data
- *          structure follows the FIFO (First In First Out) principle. 
+ *          structure follows the LIFO (Last In First Out) principle. 
  *  @author Mustafa Siddiqui
  *  @date   01/13/2020
  */
