@@ -153,7 +153,7 @@ void freeStack(Node* top) {
     Node* previousNode = NULL;
 
     // iterate through stack and free up nodes as we go
-    while (currentNode->next != NULL) {
+    while (currentNode != NULL) {
         previousNode = currentNode;
         currentNode = currentNode->next;
 
