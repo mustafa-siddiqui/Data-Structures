@@ -244,13 +244,11 @@ void printList(Node* head) {
     Node* currenNode = head;
 
     // iterate over list and print values
-    while (currenNode->next != NULL) {
+    while (currenNode != NULL) {
         printf("%d ", currenNode->value);
         currenNode = currenNode->next;
     }
-
-    // print last element in the list
-    printf("%d\n", currenNode->value);
+    printf("\n");
 }
 
 /* Free up memory allocated for list. */
@@ -259,7 +257,7 @@ void freeList(Node* head) {
     Node* previousNode = NULL;
 
     // iterate over the list and free nodes as we go
-    while (currentNode->next != NULL) {
+    while (currentNode != NULL) {
         previousNode = currentNode;
         currentNode = currentNode->next;
 
