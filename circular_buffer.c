@@ -91,6 +91,7 @@ __________________________________________________________________
 
 */
 
+/* Initialize buffer. */
 void initializeBuff(circBuff* buffer, int length) {
     // allocate memory for integer array
     int* temp = (int*) malloc(length * sizeof(int));
@@ -108,6 +109,7 @@ void initializeBuff(circBuff* buffer, int length) {
     buffer->length = 0;
 }
 
+/* Write value to buffer. */
 void writeValue(circBuff* buffer, int value) {
     // return if buffer is full
     if (buffer->length == MAX_BUFFER_LENGTH) {
@@ -126,6 +128,7 @@ void writeValue(circBuff* buffer, int value) {
     }
 }
 
+/* Read value from buffer. */
 int popValue(circBuff* buffer) {
     // return if buffer is empty
     if (buffer->length == 0) {
@@ -142,6 +145,7 @@ int popValue(circBuff* buffer) {
     return temp;
 }
 
+/* Free up memory occupied by buffer. */
 void freeBuffer(circBuff* buffer) {
     // free integer array and the buffer struct
     free(buffer->values);
