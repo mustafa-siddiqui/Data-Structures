@@ -53,6 +53,12 @@ void delete(Node* head, int valueToDelete);
 int search(Node* head, int valueToSearch);
 
 /*
+    Reverse list by editing the passed list instead of creating a new
+    one. Returns the head of the reversed list.
+*/
+Node* reverseList(Node* head);
+
+/*
     Print all elements in the list.
 */
 void printList(Node* head);
@@ -91,6 +97,10 @@ int main(void) {
 
     // delete '99' from the list
     delete(head, 99);
+    printList(head);
+
+    printf("Reversed list:\n");
+    head = reverseList(head);
     printList(head);
 
     // search '10' in list
@@ -237,6 +247,28 @@ int search(Node* head, int valueToSearch) {
     }
 
     return index;
+}
+
+/* Reverse list. */
+Node* reverseList(Node* head) {
+    if ((head == NULL) || head->next == NULL) {
+        return head;
+    }
+
+    Node* currentNode = head;
+    Node* next = NULL;
+    Node* prev = NULL;
+    while (currentNode != NULL) {
+        next = currentNode->next;
+        currentNode->next = prev;
+
+        prev = currentNode;
+        currentNode = next;
+    }
+
+    head = prev;
+
+    return head;
 }
 
 /* Print list. */
