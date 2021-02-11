@@ -64,6 +64,12 @@ Node* reverseList(Node* head);
 void printList(Node* head);
 
 /*
+    Print all elements in the list in reverse.
+    Recursive function.
+*/
+void printListReverse(Node* head);
+
+/*
     Free memory for all elements in the list.
 */
 void freeList(Node* head);
@@ -98,6 +104,11 @@ int main(void) {
     // delete '99' from the list
     delete(head, 99);
     printList(head);
+
+    // print linked list in reverse without reversing it
+    printf("List printed in reverse:\n");
+    printListReverse(head);
+    printf("\n");
 
     printf("Reversed list:\n");
     head = reverseList(head);
@@ -281,6 +292,21 @@ void printList(Node* head) {
         currenNode = currenNode->next;
     }
     printf("\n");
+}
+
+/* Print list in reverse. */
+void printListReverse(Node* head) {
+    // base case
+    if (head == NULL) {
+
+        return;
+    }
+    
+    // recursive call to next node
+    printListReverse(head->next);
+
+    // print data
+    printf("%d ", head->value);
 }
 
 /* Free up memory allocated for list. */
