@@ -10,9 +10,13 @@
 #include <stdlib.h>         // malloc()
 
 /* 
-    Struct definition for tree node. Contains a function pointer which
-    emulates the functionality of an object in OOP.
-    Holds
+    Struct definition for tree node. Contains function pointers which
+    emulate the functionality of an object's methods in OOP.
+    Holds the following 'methods':
+    -   add node to tree
+    -   print tree in ascending order
+    -   print tree in descending order
+    -   free allocated memory for tree
 */
 struct Node {
     // basic binary tree elements
