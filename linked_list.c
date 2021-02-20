@@ -59,6 +59,12 @@ int search(Node* head, int valueToSearch);
 Node* reverseList(Node* head);
 
 /*
+    Reverse the list recursively.
+    Returns the updated head of the list.
+*/
+Node* reverseListRecursively(Node* curr, Node* prev);
+
+/*
     Print all elements in the list.
 */
 void printList(Node* head);
@@ -110,8 +116,13 @@ int main(void) {
     printListReverse(head);
     printf("\n");
 
+    // reverse the list iteratively
     printf("Reversed list:\n");
     head = reverseList(head);
+    printList(head);
+
+    // reverse the list recursively
+    head = reverseListRecursively(head, NULL);
     printList(head);
 
     // search '10' in list
@@ -282,6 +293,24 @@ Node* reverseList(Node* head) {
     return head;
 }
 
+/* Reverse list recursively. */
+Node* reverse(Node* curr, Node* prev) {
+    Node* head = curr;
+    
+    // traverse recursively to end of list while
+    // keeping track of current and previous nodes
+    if (curr->next != NULL)
+        head = reverse(curr->next, curr);
+
+    // update head when end of list reached
+    if (curr->next == NULL)
+        head = curr;
+
+    // update the next nodes
+    curr->next = prev;
+    return head;
+}
+
 /* Print list. */
 void printList(Node* head) {
     Node* currenNode = head;
@@ -298,7 +327,6 @@ void printList(Node* head) {
 void printListReverse(Node* head) {
     // base case
     if (head == NULL) {
-
         return;
     }
     
