@@ -294,13 +294,13 @@ Node* reverseList(Node* head) {
 }
 
 /* Reverse list recursively. */
-Node* reverse(Node* curr, Node* prev) {
+Node* reverseListRecursively(Node* curr, Node* prev) {
     Node* head = curr;
     
     // traverse recursively to end of list while
     // keeping track of current and previous nodes
     if (curr->next != NULL)
-        head = reverse(curr->next, curr);
+        head = reverseListRecursively(curr->next, curr);
 
     // update head when end of list reached
     if (curr->next == NULL)
